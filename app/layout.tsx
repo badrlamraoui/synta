@@ -1,18 +1,11 @@
 import type { Metadata } from "next";
-import { Syne, DM_Sans, JetBrains_Mono } from "next/font/google";
+import { Manrope, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 
-const syne = Syne({
+const manrope = Manrope({
   subsets: ["latin"],
-  variable: "--font-syne",
-  weight: ["400", "600", "700", "800"],
-  display: "swap",
-});
-
-const dmSans = DM_Sans({
-  subsets: ["latin"],
-  variable: "--font-dm-sans",
-  weight: ["300", "400", "500", "600"],
+  variable: "--font-manrope",
+  weight: ["300", "400", "500", "600", "700", "800"],
   display: "swap",
 });
 
@@ -42,7 +35,7 @@ export default function RootLayout({
   return (
     <html lang="fr">
       <body
-        className={`${syne.variable} ${dmSans.variable} ${jetbrainsMono.variable} antialiased`}
+        className={`${manrope.variable} ${jetbrainsMono.variable} antialiased`}
       >
         {children}
       </body>

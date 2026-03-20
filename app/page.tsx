@@ -476,14 +476,19 @@ export default function Home() {
           display: "flex", justifyContent: "space-around", alignItems: "center", flexWrap: "wrap", gap: 32,
         }}>
           {[
-            { value: "90%",  label: "des cyberattaques ciblent les PME" },
-            { value: "49€",  label: "protection complète / mois" },
-            { value: "47s",  label: "pour générer votre rapport" },
-            { value: "NIS2", label: "conformité incluse" },
-          ].map(({ value, label }) => (
+            { value: "90%",  label: "des cyberattaques ciblent les PME",   source: "Cybermalveillance.gouv.fr, 2024" },
+            { value: "49€",  label: "protection complète / mois",           source: null },
+            { value: "47s",  label: "pour générer votre rapport",           source: null },
+            { value: "NIS2", label: "conformité incluse",                   source: null },
+          ].map(({ value, label, source }) => (
             <div key={value} style={{ textAlign: "center" }}>
               <div style={{ fontFamily: F, fontWeight: 800, fontSize: 36, color: C.blue, lineHeight: 1, marginBottom: 6 }}>{value}</div>
               <div style={{ fontFamily: F, fontSize: 13, color: C.text }}>{label}</div>
+              {source && (
+                <div style={{ fontFamily: MONO, fontSize: 10, color: C.muted, marginTop: 4, letterSpacing: "0.04em" }}>
+                  Source : {source}
+                </div>
+              )}
             </div>
           ))}
         </div>
@@ -613,7 +618,7 @@ export default function Home() {
           <ShieldIcon size={18} color={C.muted} />
           <span style={{ fontFamily: F, fontWeight: 700, fontSize: 15, color: C.muted }}>Synta</span>
         </div>
-        <span style={{ fontFamily: F, fontSize: 13, color: C.muted }}>© 2025 Synta LLC — Delaware, USA | Paris, France</span>
+        <span style={{ fontFamily: F, fontSize: 13, color: C.muted }}>© 2025 Synta SAS — Paris, France</span>
         <div style={{ display: "flex", gap: 24 }}>
           {["Mentions légales", "RGPD", "Contact"].map(l => (
             <a key={l} href="#" style={{ fontFamily: F, fontSize: 13, color: C.muted, textDecoration: "none" }}

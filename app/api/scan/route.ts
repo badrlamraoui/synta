@@ -25,7 +25,7 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    const { domain, email } = parsed.data;
+    const { domain } = parsed.data;
 
     // Run all OSINT checks in parallel
     const [dmarc, spf, subdomains, ssl, breaches] = await Promise.all([

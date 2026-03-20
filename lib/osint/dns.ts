@@ -58,14 +58,14 @@ export async function getSubdomains(domain: string): Promise<SubdomainResult> {
     if (!res.ok) return { subdomains: [], count: 0 };
 
     const entries = (await res.json()) as { name_value: string }[];
-    const subs = [
-      ...new Set(
+    const subs = Array.from(
+      new Set(
         entries
           .flatMap(e => e.name_value.split("\n"))
           .map(s => s.trim().replace(/^\*\./, ""))
           .filter(s => s.endsWith(domain) && s !== domain)
-      ),
-    ];
+      )
+    );
 
     return { subdomains: subs.slice(0, 20), count: subs.length };
   } catch {
